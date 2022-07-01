@@ -1,4 +1,4 @@
-
+/*
 let numeroCalificaciones = parseInt(prompt("Ingrese el numero de calificaciones"))
 let sumatoria = 0
 let promedio = 0

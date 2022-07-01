@@ -1,5 +1,234 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: calibri;
+}
+
+header {
+  width: 100%;
+  clear: both;
+  content: '';
+}
+
+header .menu {
+  width: 1000px;
+  height: 90px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .menu .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .menu .logo img {
+  height: auto;
+  width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 10px;
+}
+
+header .menu .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .menu .nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header .menu .nav ul li {
+  list-style: none;
+  padding: 0px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .menu .nav ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #252525;
+}
+
+header .menu .nav ul li a:hover {
+  color: #e481ff;
+}
+
+.banner {
+  background-color: #252525;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 50px;
+}
+
+.banner span {
+  color: white;
+}
+
+.banner span p {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.banner span p .fa-bolt {
+  color: #fdba00;
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px 0;
+}
+
+.info .bloque {
+  height: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-inline: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.info .bloque .icono {
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.info .bloque .text h4 {
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.info .bloque .text p {
+  color: #a8a8a8;
+}
+
+.productos {
+  width: 1000px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.productos div img {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 300px;
+  padding: 20px;
+  padding-bottom: 40px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border: solid 1px black;
+  -webkit-box-shadow: 5px 5px 5px gray;
+          box-shadow: 5px 5px 5px gray;
+}
+
+footer {
+  height: 300px;
+  width: 100%;
+  background-color: #363636;
+}
+
+footer .listas {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+footer .listas .bloque h3 {
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: lightgray;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+footer .listas .bloque ul li {
+  list-style: none;
+  text-align: center;
+  color: #868585;
+  font-weight: bold;
+  padding: 8px 0;
+  text-align: center;
+}
+
+footer .listas .bloque ul li a {
+  text-decoration: none;
+  color: #868585;
+  font-weight: bold;
+  padding: 8px 0;
+  text-align: center;
 }
 /*# sourceMappingURL=estilo.css.map */
