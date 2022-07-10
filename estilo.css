@@ -67,6 +67,7 @@ header .menu .nav ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin: 0;
 }
 
 header .menu .nav ul li {
@@ -88,6 +89,68 @@ header .menu .nav ul li a {
 
 header .menu .nav ul li a:hover {
   color: #e481ff;
+}
+
+header .menu .carrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .menu .carrito i {
+  font-size: 25px;
+  color: black;
+}
+
+header .menu .carrito i:hover {
+  color: gray;
+}
+
+footer {
+  height: 300px;
+  width: 100%;
+  background-color: #363636;
+}
+
+footer .listas {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+footer .listas .bloque h3 {
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: lightgray;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+footer .listas .bloque ul li {
+  list-style: none;
+  text-align: center;
+  color: #868585;
+  font-weight: bold;
+  padding: 8px 0;
+  text-align: center;
+}
+
+footer .listas .bloque ul li a {
+  text-decoration: none;
+  color: #868585;
+  font-weight: bold;
+  padding: 8px 0;
+  text-align: center;
 }
 
 .banner {
@@ -138,8 +201,14 @@ header .menu .nav ul li a:hover {
 }
 
 .info .bloque .icono {
-  padding-right: 10px;
-  padding-bottom: 20px;
+  height: 70px;
+  width: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .info .bloque .text h4 {
@@ -169,7 +238,15 @@ header .menu .nav ul li a:hover {
           align-items: center;
 }
 
-.productos div img {
+.productos #tarjetas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.productos .card {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -181,7 +258,9 @@ header .menu .nav ul li a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 300px;
+  margin-right: 20px;
+  height: 350px;
+  width: 250px;
   padding: 20px;
   padding-bottom: 40px;
   -o-object-fit: contain;
@@ -191,44 +270,73 @@ header .menu .nav ul li a:hover {
           box-shadow: 5px 5px 5px gray;
 }
 
-footer {
-  height: 300px;
-  width: 100%;
-  background-color: #363636;
+.productos .card img {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 200px;
 }
 
-footer .listas {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  width: 60%;
-  margin: 0 auto;
-  padding-top: 40px;
+.productos .card h5 {
+  font-size: 28px;
 }
 
-footer .listas .bloque h3 {
-  font-size: 20px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: lightgray;
-  text-transform: uppercase;
-  text-align: center;
+#carro {
+  height: auto;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-footer .listas .bloque ul li {
-  list-style: none;
-  text-align: center;
-  color: #868585;
-  font-weight: bold;
-  padding: 8px 0;
-  text-align: center;
+#carro .tarjeta-carrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-footer .listas .bloque ul li a {
-  text-decoration: none;
-  color: #868585;
-  font-weight: bold;
-  padding: 8px 0;
-  text-align: center;
+#carro .tarjeta-carrito .imagen img {
+  height: 60px;
+  width: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#carro .tarjeta-carrito div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#carro h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-size: 25px;
 }
 /*# sourceMappingURL=estilo.css.map */
