@@ -91,7 +91,7 @@ header .menu .nav ul li a:hover {
   color: #e481ff;
 }
 
-header .menu .carrito {
+header .menu .icono-carrito {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,12 +103,12 @@ header .menu .carrito {
           justify-content: center;
 }
 
-header .menu .carrito i {
+header .menu .icono-carrito i {
   font-size: 25px;
   color: black;
 }
 
-header .menu .carrito i:hover {
+header .menu .icono-carrito i:hover {
   color: gray;
 }
 
@@ -289,7 +289,7 @@ footer .listas .bloque ul li a {
   font-size: 28px;
 }
 
-#carro {
+#carrito {
   height: auto;
   width: 900px;
   margin-left: auto;
@@ -298,7 +298,7 @@ footer .listas .bloque ul li a {
   margin-bottom: 15px;
 }
 
-#carro .tarjeta-carrito {
+#carrito .tarjeta-carrito {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -314,14 +314,14 @@ footer .listas .bloque ul li a {
   margin-bottom: 15px;
 }
 
-#carro .tarjeta-carrito .imagen img {
+#carrito .tarjeta-carrito .imagen img {
   height: 60px;
   width: 60px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-#carro .tarjeta-carrito div {
+#carrito .tarjeta-carrito div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -330,7 +330,7 @@ footer .listas .bloque ul li a {
           align-items: center;
 }
 
-#carro h1 {
+#carrito h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

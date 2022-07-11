@@ -54,7 +54,7 @@ class Carrito {
 
     calcularTotal() {
         let total = 0
-        for(let i = 0; i < this.productos.length; i++) {
+        for (let i = 0; i < this.productos.length; i++) {
             total += this.productos[i].precio
         }
         return total
@@ -88,16 +88,16 @@ function tarjetaCarro(producto) {
                                 <h5>$ ${producto.precio}</h5>
                             </div>
                         </div><hr>`
-    return carroTarjeta 
+    return carroTarjeta
 }
 
 function limpiarCarrito() {
-    let divCarrito = document.querySelector("#carro")
+    let divCarrito = document.querySelector("#carrito")
     divCarrito.innerHTML = ""
 }
 
-function actualizarCarrito() {
-    let divCarrito = document.querySelector("#carro")
+function actualizarCarrito(carrito) {
+    let divCarrito = document.querySelector("#carrito")
     carrito.productos.forEach(producto => {
         divCarrito.innerHTML += tarjetaCarro(producto)
     })
@@ -109,17 +109,27 @@ function renovarStorage() {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
+/*function obtenerProductosLocalStorage() {
+    let productosAlmacenados = localStorage.getItem("productos")
+    if (productosAlmacenados !== null) {
+        productos = JSON.parse(productosAlmacenados)
+    }
+
+}*/
+
 /* CARGAR CARRITO EXISTENTE */
 
-window.addEventListener("DOMContentLoaded", (e) => {
-    let storage = JSON.parse(localStorage.getItem("carro"))
+window.addEventListener('DOMContentLoaded', (e) => {
+    let storage = JSON.parse(localStorage.getItem("carrito"))
     let carritoGuardado = new Carrito(storage.id, storage.productos)
     storage.productos.forEach(producto => {
-        carritoGuardado.producto.push(producto)
+        carritoGuardado.productos.push(producto)
     })
     limpiarCarrito()
     actualizarCarrito(carritoGuardado)
 })
+
+
 
 /* GENERACION CATALOGO DE PRODUCTOS*/
 
@@ -140,30 +150,24 @@ Catalogo.push(producto4)
 /* GENERACION DE TARJETAS DE PRODUCTOS*/
 
 let tarjetasDiv = document.querySelector("#tarjetas")
-
 Catalogo.forEach(producto => {
     tarjetasDiv.innerHTML += individualTarjeta(producto)
 })
 
 /* carrito De un producto */
 
-let carrito = new Carrito(1)
-
-/* botones */
-
-let botones = document.querySelectorAll(".botonDeCompra")
-
-let arrayDeBotones = Array.from(botones)
-
+let carrito = new Carrito(1);
+let botones = document.querySelectorAll(".botonDeCompra");
+let arrayDeBotones = Array.from(botones);
 arrayDeBotones.forEach(boton => {
-            boton.addEventListener("click", (e) => {
-                    let productoSeleccionado = Catalogo.find(producto => producto.id == e.target.id)
-                    carrito.productos.push(productoSeleccionado)
-                    limpiarCarrito()
-                    actualizarCarrito(carrito)
-                    renovarStorage()
-                })
-            })
+    boton.addEventListener("click", (e) => {
+        let productoSeleccionado = Catalogo.find(producto => producto.id == e.target.id);
+        carrito.productos.push(productoSeleccionado);
+        limpiarCarrito();
+        actualizarCarrito(carrito);
+        renovarStorage();
+    })
+});
 
 
 
@@ -185,25 +189,21 @@ arrayDeBotones.forEach(boton => {
 
 
 
+/*let botonUno = document.getElementById("btnRopaUno")
+let botonDos = document.getElementById("btnRopaDos")
+let botonTres = document.getElementById("btnRopaTres")
+let botonCuatro = document.getElementById("btnRopaCuatro")
 
+botonUno.addEventListener("click", () => {
+        alert("se agrego al carrito")})
 
+botonDos.addEventListener("click", () => {
+        alert("se agrego al carrito")})
 
+botonTres.addEventListener("click", () => {
+        alert("se agrego al carrito")})
 
-        /*let botonUno = document.getElementById("btnRopaUno")
-        let botonDos = document.getElementById("btnRopaDos")
-        let botonTres = document.getElementById("btnRopaTres")
-        let botonCuatro = document.getElementById("btnRopaCuatro")
-
-        botonUno.addEventListener("click", () => {
-                alert("se agrego al carrito")})
-
-        botonDos.addEventListener("click", () => {
-                alert("se agrego al carrito")})
-
-        botonTres.addEventListener("click", () => {
-                alert("se agrego al carrito")})
-
-        botonCuatro.addEventListener("click", () => {
-                alert("se agrego al carrito")})
-                    
-        */
+botonCuatro.addEventListener("click", () => {
+        alert("se agrego al carrito")})
+            
+*/
