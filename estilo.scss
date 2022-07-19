@@ -94,22 +94,26 @@ footer {
         padding-top: 40px;
 
         .bloque {
+            width: 300px;
             h3 {
                 font-size: 20px;
                 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
                 color: rgb(211, 211, 211);
                 text-transform: uppercase;
-                text-align: center;
+                text-align: justify;
+                padding-left: 35px;
             }
 
             ul {
+                padding-left: 35px;
+                justify-items: baseline;
                 li {
                     list-style: none;
-                    text-align: center;
+                    text-align: justify;
                     color: rgb(134, 133, 133);
                     font-weight: bold;
                     padding: 8px 0;
-                    text-align: center;
+                    
 
                     a {
                         text-decoration: none;
@@ -266,4 +270,16 @@ footer {
         justify-content: flex-end;
         font-size: 25px;
     }
+}
+
+.limpiarCarro{
+    width: 900px;
+    display: flex;
+    justify-content: flex-end;
+    #vaciarCarrito{
+    width: 120px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
 }

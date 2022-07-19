@@ -128,21 +128,30 @@ footer .listas {
   padding-top: 40px;
 }
 
+footer .listas .bloque {
+  width: 300px;
+}
+
 footer .listas .bloque h3 {
   font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: lightgray;
   text-transform: uppercase;
-  text-align: center;
+  text-align: justify;
+  padding-left: 35px;
+}
+
+footer .listas .bloque ul {
+  padding-left: 35px;
+  justify-items: baseline;
 }
 
 footer .listas .bloque ul li {
   list-style: none;
-  text-align: center;
+  text-align: justify;
   color: #868585;
   font-weight: bold;
   padding: 8px 0;
-  text-align: center;
 }
 
 footer .listas .bloque ul li a {
@@ -338,5 +347,26 @@ footer .listas .bloque ul li a {
       -ms-flex-pack: end;
           justify-content: flex-end;
   font-size: 25px;
+}
+
+.limpiarCarro {
+  width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.limpiarCarro #vaciarCarrito {
+  width: 120px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 /*# sourceMappingURL=estilo.css.map */

@@ -1,42 +1,4 @@
-/*const productos = [{id: 1, nombre: "colaless", precio: 500, categoria: "ropa interior"},
-            {id: 2, nombre: "pijama", precio: 2500, categoria: "pijama"},
-            {id: 3, nombre: "corpiño", precio: 700, categoria: "ropa interior"},
-            {id: 4, nombre: "remera", precio: 1500, categoria: "ropa"},
-            {id: 5, nombre: "short", precio: 1100, categoria: "ropa"},
-            {id: 6, nombre: "pantalon", precio: 1700, categoria: "ropa "}]
 
-function acumular(num){
-    total += num
-}
-
-
-function simCompra(){
-    let total = 0
-
-    let continuarCompra = ""
-    
-    do{
-        let idProducto = parseInt(prompt("Ingrese el numero del producto que desee\n1. colaless. precio: 500\n2. pijama. precio: 2500\n3. corpiño. precio: 700\n4. remera. precio: 1500\n5. short. precio: 1100\n6. pantalon. precio: 1700" ))
-
-        let cantidad = parseInt(prompt("Ingrese la cantidad que necesita"))
-        
-        let producto = productos.find(elemento => elemento.id === idProducto)
-        console.log(producto)
-        let subtotal = producto.precio * cantidad
-
-        total = total + subtotal 
-
-        continuarCompra = prompt("¿Seguir comprando?\n 1. SI\n 2. NO ")
-
-    }while (continuarCompra == 1)
-    alert ("El total de la compra es $"+ total)
-    
-    
-}
-
-simCompra()
-
-*/
 class Producto {
     constructor(id, nombre, precio, imagen) {
         this.id = id
@@ -69,7 +31,7 @@ function individualTarjeta(producto) {
                 <img src="img/${producto.imagen}" alt="">
                 <h5>${producto.nombre}</h5>
                 <p>$ ${producto.precio}</p>
-                <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carro</a>
+                <a class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carro</a>
             </div>`;
 
     return tarjetaIndividual;
@@ -77,6 +39,7 @@ function individualTarjeta(producto) {
 
 function tarjetaCarro(producto) {
     let carroTarjeta = `
+                        
                         <hr><div class="tarjeta-carrito">
                             <div class="imagen">
                                 <img src="img/${producto.imagen}" alt="">
@@ -89,6 +52,15 @@ function tarjetaCarro(producto) {
                             </div>
                         </div><hr>`
     return carroTarjeta
+}
+
+function btnLimpiarCarro() {
+    let botonLimpiarCarrito = `
+                            <div class="container limpiarCarro">
+                                <a   id="vaciarCarrito" class="btn btn-danger">Vaciar Carrito</a>
+                            </div>`
+    return botonLimpiarCarrito
+    
 }
 
 function limpiarCarrito() {
@@ -109,13 +81,11 @@ function renovarStorage() {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-/*function obtenerProductosLocalStorage() {
-    let productosAlmacenados = localStorage.getItem("productos")
-    if (productosAlmacenados !== null) {
-        productos = JSON.parse(productosAlmacenados)
-    }
-
-}*/
+function vaciarCarrito() {
+    let divCarrito = document.querySelector("#carrito")
+    divCarrito.innerHTML = ""
+    localStorage.removeItem("carrito")
+}
 
 /* CARGAR CARRITO EXISTENTE */
 
@@ -169,41 +139,8 @@ arrayDeBotones.forEach(boton => {
     })
 });
 
+let botonVaciarCarrito = document.querySelector("#vaciarCarrito")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*let botonUno = document.getElementById("btnRopaUno")
-let botonDos = document.getElementById("btnRopaDos")
-let botonTres = document.getElementById("btnRopaTres")
-let botonCuatro = document.getElementById("btnRopaCuatro")
-
-botonUno.addEventListener("click", () => {
-        alert("se agrego al carrito")})
-
-botonDos.addEventListener("click", () => {
-        alert("se agrego al carrito")})
-
-botonTres.addEventListener("click", () => {
-        alert("se agrego al carrito")})
-
-botonCuatro.addEventListener("click", () => {
-        alert("se agrego al carrito")})
-            
-*/
+botonVaciarCarrito.addEventListener("click", () => {
+        vaciarCarrito()
+    })
