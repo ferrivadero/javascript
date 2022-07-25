@@ -274,9 +274,9 @@ footer .listas .bloque ul li a {
   padding-bottom: 40px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: solid 1px black;
-  -webkit-box-shadow: 5px 5px 5px gray;
-          box-shadow: 5px 5px 5px gray;
+  border: 0;
+  -webkit-box-shadow: 12px 12px 32px #777777;
+          box-shadow: 12px 12px 32px #777777;
 }
 
 .productos .card img {
@@ -361,6 +361,27 @@ footer .listas .bloque ul li a {
 
 .limpiarCarro #vaciarCarrito {
   width: 120px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.comprar {
+  width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.comprar #confirmarCompra {
+  width: 90px;
   margin-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;

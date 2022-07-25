@@ -74,6 +74,18 @@ function actualizarCarrito(carrito) {
         divCarrito.innerHTML += tarjetaCarro(producto)
     })
     divCarrito.innerHTML += `<h1>Total: $ ${carrito.calcularTotal()}</h1>`
+    divCarrito.innerHTML += `
+                            <select name="cuotas" id="cuotas">
+                                <option value="1 cuota">1 cuota sin interes de $${carrito.calcularTotal()}</option>
+                                <option value="3 cuotas">3 cuotas sin interes de $${carrito.calcularTotal()/3}</option>
+                                <option value="6 cuotas">6 cuotas sin interes de $${carrito.calcularTotal()/6}</option>
+                                <option value="12 cuotas">12 cuotas fijas de $${(carrito.calcularTotal()*1.30)/12}</option>
+                            </select>`
+    divCarrito.innerHTML += `
+                            <div class="container comprar">
+                                <a id="confirmarCompra" class="btn btn-success">Comprar</a>
+                            </div>`
+    
 }
 
 function renovarStorage() {
@@ -84,8 +96,52 @@ function renovarStorage() {
 function vaciarCarrito() {
     let divCarrito = document.querySelector("#carrito")
     divCarrito.innerHTML = ""
-    localStorage.removeItem("carrito")
+    carrito = new Carrito()
 }
+
+function alert() {
+    Swal.fire({
+        icon: 'success',
+        title: '¡Gracias por tu compra!',
+        text: 'Pronto recibiras toda la info en tu mail',
+    })
+    
+}
+
+function alertError() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No has seleccionado ningun producto',
+    })
+    
+}
+
+function toast(producto) {
+    Toastify({
+        text: `Agregaste ${producto.nombre} al carrito`,
+        duration: 2000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            color: "black",
+            background: "linear-gradient(to right, #dddddd, #d2d2d2)",
+        },
+    }).showToast();
+    
+}
+
+function confirmarCompra() {
+    let botonConfirmarCompra = document.getElementById("confirmarCompra")
+    botonConfirmarCompra.addEventListener("click", () => {
+        alert()
+        vaciarCarrito()
+        renovarStorage()
+    })
+}
+
 
 /* CARGAR CARRITO EXISTENTE */
 
@@ -126,16 +182,18 @@ Catalogo.forEach(producto => {
 
 /* carrito De un producto */
 
-let carrito = new Carrito(1);
+let carrito = new Carrito();
 let botones = document.querySelectorAll(".botonDeCompra");
 let arrayDeBotones = Array.from(botones);
 arrayDeBotones.forEach(boton => {
     boton.addEventListener("click", (e) => {
         let productoSeleccionado = Catalogo.find(producto => producto.id == e.target.id);
         carrito.productos.push(productoSeleccionado);
+        toast(productoSeleccionado)
         limpiarCarrito();
         actualizarCarrito(carrito);
         renovarStorage();
+        confirmarCompra()
     })
 });
 
@@ -143,4 +201,6 @@ let botonVaciarCarrito = document.querySelector("#vaciarCarrito")
 
 botonVaciarCarrito.addEventListener("click", () => {
         vaciarCarrito()
+        renovarStorage()
     })
+
