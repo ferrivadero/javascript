@@ -140,7 +140,6 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
 
     let storage = JSON.parse(localStorage.getItem("carrito"));
     if(storage){
-      
       let carritoGuardado = new Carrito(storage.id, storage.productos);
       storage.productos.forEach((producto) => {
         carritoGuardado.productos.push(producto);
@@ -152,7 +151,7 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
       actualizarCarrito(carritoGuardado);
       }
 
-    // GENERACION DE TARJETAS DE PRODUCTOS
+    //TARJETAS DE PRODUCTOS
 
     let tarjetasDiv = document.querySelector("#tarjetas");
     Catalogo.forEach((producto) => {
