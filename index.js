@@ -18,9 +18,12 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
   .then((resp) => resp.json())
   .then((Catalogo) => {
 
-    /* FUNCIONES */
+    // FUNCIONES 
 
-    
+    function main() {
+      confirmarCompra()
+      btnVaciarCarro() 
+    }
 
     function individualTarjeta(producto) {
       let tarjetaIndividual = ` 
@@ -44,9 +47,6 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
                             <div >
                                 <h5>${producto.nombre}</h5>
                             </div>
-                            <div >
-                                <input type="number" value="">
-                            </div>
                             <div>
                                 <h5>$ ${producto.precio}</h5>
                             </div>
@@ -65,9 +65,9 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
       let cuota12 = Math.ceil(carrito.calcularTotal() * 1.3 / 12)
       let divCarrito = document.querySelector("#carrito");
       divCarrito.innerHTML += `
-      <div class="container limpiarCarro">
-          <a   id="vaciarCarrito" class="btn btn-danger">Vaciar Carrito</a>
-      </div>`
+                                <div class="container limpiarCarro">
+                                  <a   id="vaciarCarrito" class="btn btn-danger">Vaciar Carrito</a>
+                                </div>`
       carro.productos.forEach((producto) => {
         divCarrito.innerHTML += tarjetaCarro(producto);
       });
@@ -75,15 +75,9 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
       divCarrito.innerHTML += `
                             <select name="cuotas" id="cuotas">
                                 <option value="1 cuota">1 cuota sin interes de $${carrito.calcularTotal()}</option>
-                                <option value="3 cuotas">3 cuotas sin interes de $${
-                                  cuota3
-                                }</option>
-                                <option value="6 cuotas">6 cuotas sin interes de $${
-                                  cuota6
-                                }</option>
-                                <option value="12 cuotas">12 cuotas fijas de $${
-                                  cuota12
-                                }</option>
+                                <option value="3 cuotas">3 cuotas sin interes de $${cuota3}</option>
+                                <option value="6 cuotas">6 cuotas sin interes de $${cuota6}</option>
+                                <option value="12 cuotas">12 cuotas fijas de $${cuota12}</option>
                             </select>`;
       divCarrito.innerHTML += `
                             <div class="container comprar">
@@ -94,20 +88,6 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
     function renovarStorage() {
       localStorage.removeItem("carrito");
       localStorage.setItem("carrito", JSON.stringify(carrito));
-    }
-
-    function vaciarCarrito() {
-      let divCarrito = document.querySelector("#carrito");
-      divCarrito.innerHTML = "";
-      carrito = new Carrito();
-    }
-    function btnVaciarCarro() {     
-      let botonVaciarCarrito = document.getElementById("vaciarCarrito");
-  
-      botonVaciarCarrito.addEventListener("click", () => {
-        vaciarCarrito();
-        renovarStorage();
-      });
     }
 
     function alert() {
@@ -123,9 +103,9 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
         text: `Agregaste ${producto.nombre} al carrito`,
         duration: 2000,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
         style: {
           color: "black",
           background: "linear-gradient(to right, #dddddd, #d2d2d2)",
@@ -142,8 +122,21 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
       });
     }
 
-    /* CARGAR CARRITO EXISTENTE */
-    let carroGuardado = 0
+    function vaciarCarrito() {
+      let divCarrito = document.querySelector("#carrito");
+      divCarrito.innerHTML = "";
+      carrito = new Carrito();
+    }
+    
+    function btnVaciarCarro() {     
+      let botonVaciarCarrito = document.getElementById("vaciarCarrito");
+        botonVaciarCarrito.addEventListener("click", () => {
+        vaciarCarrito();
+        renovarStorage();
+      });
+    }
+
+    // CARGAR CARRITO EXISTENTE
 
     let storage = JSON.parse(localStorage.getItem("carrito"));
     if(storage){
@@ -157,17 +150,16 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
       });
       limpiarCarrito();
       actualizarCarrito(carritoGuardado);
-      console.log(carritoGuardado.productos)
-      
-    }
-    /* GENERACION DE TARJETAS DE PRODUCTOS*/
+      }
+
+    // GENERACION DE TARJETAS DE PRODUCTOS
 
     let tarjetasDiv = document.querySelector("#tarjetas");
     Catalogo.forEach((producto) => {
       tarjetasDiv.innerHTML += individualTarjeta(producto);
     });
 
-    /* carrito De un producto */
+    // carrito de un producto 
 
     
     let botones = document.querySelectorAll(".botonDeCompra");
@@ -183,15 +175,10 @@ fetch("https://62e85e8d93938a545be510ee.mockapi.io/api/v1/articulo")
         renovarStorage();
         confirmarCompra();
         btnVaciarCarro()
-        console.log(carrito)
       })
       });
-      
 
-    function main() {
-      confirmarCompra()
-      btnVaciarCarro() 
-    }
+    
     main()
   });
 
